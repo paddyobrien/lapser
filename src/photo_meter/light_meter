@@ -1,0 +1,18 @@
+int calculate
+if (millis() - last > 1000)
+  {
+    last = millis();
+    t = cnt;
+    unsigned long hz = t - oldcnt;
+    Serial.print("FREQ: "); 
+    Serial.print(hz);
+    Serial.print("\t = ");
+    Serial.print(" ");
+    Serial.print((hz+50)/100);
+    Serial.print("mW/m2 ");
+    Serial.print((log((hz+50)/100) - log(2.5))/log(2));
+    Serial.print("EV ");
+    Serial.print(pow(4, 2) / pow(2, (log((hz+50)/100) - log(2.5))/log(2)));
+    Serial.println("");
+    oldcnt = t;
+  }
